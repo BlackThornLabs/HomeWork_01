@@ -53,10 +53,10 @@ fun main() {
 
     val executionTime = measureTimeMillis { mastodon.sortByName().sortByAge() }
 
-//    println(guys.sortByAge())
+    println(guys.sortByAge())
 
     println(andys.sortByName())
 
-//    println("Execution time is $executionTime")
+    println("Execution time is $executionTime")
 
 }
