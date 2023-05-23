@@ -20,12 +20,7 @@ fun MutableList<Person>.sortByAge() : MutableList<Person>{
 
 // функция, которая сортирует список в алфавитном порядке по имени. Если имена одинаковые, то учитывается фамилия
 fun MutableList<Person>.sortByName() : MutableList<Person> {
-    this.sortBy{ it.name }
-    (0 until this.lastIndex).forEach { i ->
-        if (this[i].name != this[i + 1].name) {
-            return this
-        } else this.sortBy{ it.surname }
-    }
+    this.sortWith(compareBy<Person>{it.name}.thenBy {it.surname})
     return this
 }
 //функция, которая вычисляет время выполнения функции-аргумента и возвращает результат результат в миллисекундах
@@ -58,10 +53,10 @@ fun main() {
 
     val executionTime = measureTimeMillis { mastodon.sortByName().sortByAge() }
 
-    println(guys.sortByAge())
+//    println(guys.sortByAge())
 
     println(andys.sortByName())
 
-    println("Execution time is $executionTime")
+//    println("Execution time is $executionTime")
 
 }
